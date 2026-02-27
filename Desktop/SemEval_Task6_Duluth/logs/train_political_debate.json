@@ -1,0 +1,137 @@
+{
+  "model": "mlburnham/Political_DEBATE_base_v1.0",
+  "task": "subtask1_clarity_3class",
+  "hyperparameters": {
+    "learning_rate": 3e-05,
+    "batch_size": 8,
+    "gradient_accumulation_steps": 4,
+    "num_epochs": 6,
+    "warmup_ratio": 0.15,
+    "weight_decay": 0.01,
+    "llrd_alpha": 0.9,
+    "patience": 3,
+    "max_length": 512,
+    "dataset_dir": "./QEvasion_Gemini",
+    "output_dir": "./political_debate_model",
+    "log_file": "./logs/train_political_debate.json"
+  },
+  "epochs": [
+    {
+      "epoch": 1,
+      "train_loss": 0.7926,
+      "train_f1": 0.6634,
+      "dev_f1": 0.4387,
+      "dev_acc": 0.6916,
+      "per_class_f1": {
+        "Ambivalent": 0.8139,
+        "Clear Non-Reply": 0.3243,
+        "Clear Reply": 0.1778
+      },
+      "elapsed_minutes": 9.9
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.4564,
+      "train_f1": 0.8048,
+      "dev_f1": 0.5724,
+      "dev_acc": 0.7338,
+      "per_class_f1": {
+        "Ambivalent": 0.8351,
+        "Clear Non-Reply": 0.5789,
+        "Clear Reply": 0.303
+      },
+      "elapsed_minutes": 19.8
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.3931,
+      "train_f1": 0.8349,
+      "dev_f1": 0.5332,
+      "dev_acc": 0.6948,
+      "per_class_f1": {
+        "Ambivalent": 0.8035,
+        "Clear Non-Reply": 0.4324,
+        "Clear Reply": 0.3636
+      },
+      "elapsed_minutes": 29.7
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.3316,
+      "train_f1": 0.8658,
+      "dev_f1": 0.5419,
+      "dev_acc": 0.6721,
+      "per_class_f1": {
+        "Ambivalent": 0.7745,
+        "Clear Non-Reply": 0.4375,
+        "Clear Reply": 0.4138
+      },
+      "elapsed_minutes": 39.6
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.2748,
+      "train_f1": 0.89,
+      "dev_f1": 0.5587,
+      "dev_acc": 0.6591,
+      "per_class_f1": {
+        "Ambivalent": 0.7573,
+        "Clear Non-Reply": 0.4571,
+        "Clear Reply": 0.4615
+      },
+      "elapsed_minutes": 49.5
+    }
+  ],
+  "best_epoch": 2,
+  "best_f1": 0.5724,
+  "final_results": {
+    "dev_f1": 0.5724,
+    "dev_accuracy": 0.7338,
+    "classification_report": {
+      "Ambivalent": {
+        "precision": 0.7326007326007326,
+        "recall": 0.970873786407767,
+        "f1-score": 0.8350730688935282,
+        "support": 206.0
+      },
+      "Clear Non-Reply": {
+        "precision": 0.7333333333333333,
+        "recall": 0.4782608695652174,
+        "f1-score": 0.5789473684210527,
+        "support": 23.0
+      },
+      "Clear Reply": {
+        "precision": 0.75,
+        "recall": 0.189873417721519,
+        "f1-score": 0.30303030303030304,
+        "support": 79.0
+      },
+      "accuracy": 0.7337662337662337,
+      "macro avg": {
+        "precision": 0.7386446886446887,
+        "recall": 0.5463360245648344,
+        "f1-score": 0.5723502467816279,
+        "support": 308.0
+      },
+      "weighted avg": {
+        "precision": 0.7371182389039532,
+        "recall": 0.7337662337662337,
+        "f1-score": 0.6794812844322888,
+        "support": 308.0
+      }
+    }
+  },
+  "class_distribution": {
+    "Ambivalent": 2040,
+    "Clear Non-Reply": 2040,
+    "Clear Reply": 2040
+  },
+  "num_parameters": 184424451,
+  "architecture": "deberta-v2",
+  "training_time_minutes": 49.5,
+  "prediction_distribution": {
+    "Ambivalent": 273,
+    "Clear Non-Reply": 15,
+    "Clear Reply": 20
+  }
+}

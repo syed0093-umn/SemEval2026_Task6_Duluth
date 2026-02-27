@@ -1,0 +1,149 @@
+{
+  "model": "MoritzLaurer/DeBERTa-v3-large-mnli-fever-anli-ling-wanli",
+  "task": "subtask1_clarity_3class",
+  "hyperparameters": {
+    "learning_rate": 2e-05,
+    "batch_size": 4,
+    "gradient_accumulation_steps": 8,
+    "num_epochs": 6,
+    "warmup_ratio": 0.15,
+    "weight_decay": 0.01,
+    "llrd_alpha": 0.9,
+    "patience": 3,
+    "max_length": 512,
+    "dataset_dir": "./QEvasion_Gemini",
+    "output_dir": "./deberta_nli_large_model",
+    "log_file": "./logs/train_nli_large.json"
+  },
+  "epochs": [
+    {
+      "epoch": 1,
+      "train_loss": 0.7783,
+      "train_f1": 0.7177,
+      "dev_f1": 0.54,
+      "dev_acc": 0.7403,
+      "per_class_f1": {
+        "Ambivalent": 0.8305,
+        "Clear Non-Reply": 0.303,
+        "Clear Reply": 0.4865
+      },
+      "elapsed_minutes": 29.6
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.3653,
+      "train_f1": 0.8476,
+      "dev_f1": 0.6186,
+      "dev_acc": 0.75,
+      "per_class_f1": {
+        "Ambivalent": 0.8341,
+        "Clear Non-Reply": 0.5217,
+        "Clear Reply": 0.5
+      },
+      "elapsed_minutes": 54.1
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.2666,
+      "train_f1": 0.8896,
+      "dev_f1": 0.6411,
+      "dev_acc": 0.7532,
+      "per_class_f1": {
+        "Ambivalent": 0.826,
+        "Clear Non-Reply": 0.4706,
+        "Clear Reply": 0.6269
+      },
+      "elapsed_minutes": 65.1
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.1735,
+      "train_f1": 0.9301,
+      "dev_f1": 0.632,
+      "dev_acc": 0.6948,
+      "per_class_f1": {
+        "Ambivalent": 0.7641,
+        "Clear Non-Reply": 0.549,
+        "Clear Reply": 0.5829
+      },
+      "elapsed_minutes": 76.1
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.1052,
+      "train_f1": 0.9623,
+      "dev_f1": 0.6678,
+      "dev_acc": 0.7403,
+      "per_class_f1": {
+        "Ambivalent": 0.803,
+        "Clear Non-Reply": 0.5641,
+        "Clear Reply": 0.6364
+      },
+      "elapsed_minutes": 87.1
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.0714,
+      "train_f1": 0.9733,
+      "dev_f1": 0.6253,
+      "dev_acc": 0.7208,
+      "per_class_f1": {
+        "Ambivalent": 0.791,
+        "Clear Non-Reply": 0.4583,
+        "Clear Reply": 0.6265
+      },
+      "elapsed_minutes": 98.1
+    }
+  ],
+  "best_epoch": 5,
+  "best_f1": 0.6678,
+  "final_results": {
+    "dev_f1": 0.6678,
+    "dev_accuracy": 0.7403,
+    "classification_report": {
+      "Ambivalent": {
+        "precision": 0.8256410256410256,
+        "recall": 0.7815533980582524,
+        "f1-score": 0.8029925187032418,
+        "support": 206.0
+      },
+      "Clear Non-Reply": {
+        "precision": 0.6875,
+        "recall": 0.4782608695652174,
+        "f1-score": 0.5641025641025641,
+        "support": 23.0
+      },
+      "Clear Reply": {
+        "precision": 0.5773195876288659,
+        "recall": 0.7088607594936709,
+        "f1-score": 0.6363636363636364,
+        "support": 79.0
+      },
+      "accuracy": 0.7402597402597403,
+      "macro avg": {
+        "precision": 0.6968202044232972,
+        "recall": 0.6562250090390469,
+        "f1-score": 0.6678195730564808,
+        "support": 308.0
+      },
+      "weighted avg": {
+        "precision": 0.7516324633270509,
+        "recall": 0.7402597402597403,
+        "f1-score": 0.7424141074673835,
+        "support": 308.0
+      }
+    }
+  },
+  "class_distribution": {
+    "Ambivalent": 2040,
+    "Clear Non-Reply": 2040,
+    "Clear Reply": 2040
+  },
+  "num_parameters": 435064835,
+  "training_time_minutes": 98.1,
+  "prediction_distribution": {
+    "Ambivalent": 195,
+    "Clear Non-Reply": 16,
+    "Clear Reply": 97
+  }
+}
